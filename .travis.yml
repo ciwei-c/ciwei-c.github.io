@@ -1,0 +1,29 @@
+language: node_js
+node_js: stable
+cache: 'yarn:true directories:"node_modules"'
+before_install:
+  - npm install yarn
+install:
+  - yarn install --ignore-engines
+script:
+  - yarn docs:build
+after_script:
+  - cd ./docs/.vuepress/dist
+  - git init
+  - git config user.name "ciwei-c"
+  - git config user.email "ciwei_c@163.com"
+  - git add .
+  - git commit -m "Update docs"
+  - 'git push --force --quiet "https://${TOKEN}@${GH_REF}" master:master'
+branches:
+  only:
+    - local
+env:
+  global:
+    - GH_REF: github.com/ciwei-c/ciwei-c.github.io.git
+notifications:
+  email:
+    recipients:
+      - ciwei_c@163.com
+    on_success: always
+    on_failure: always
