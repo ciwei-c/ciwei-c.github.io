@@ -1,6 +1,11 @@
 module.exports = {
     title: 'ciwei-c',
   	description: 'less is more',
+    port: 8888,
+    head: [
+        ['link', { rel: 'icon', href: `/logo.jpg` }],
+        ['script', { src: '/canvas.js' ,defer:'defer'}]
+    ],
     themeConfig: {
         nav: [{ 
         	text: '首页', 
@@ -11,7 +16,7 @@ module.exports = {
                 { text: 'html', link: '/nav/html/' },
                 { text: 'css', link: '/nav/css/' },
                 { text: 'javascript', link: '/nav/js/' },
-                { text: '框架', link: '/nav/framework/' }
+                { text: 'framework', link: '/nav/framework/' }
             ]
         },{
         	text: '随笔',
