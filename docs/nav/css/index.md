@@ -1,3 +1,17 @@
-[回流和重绘](/category/css/reflow.html)
-
-[flex兼容写法](/category/css/flex.html)
+<nav-layout :data="artics" :path="path"></nav-layout>
+<script>
+	export default {
+	  data () {
+	    return {
+	      artics: [{
+	  			title:"回流和重绘",
+	  			file:"reflow.html"
+	  		},{
+	  			title:"flex兼容写法",
+	  			file:"flex.html"
+	  		}],
+	      path:"/category/css/"
+	    }
+	  }
+	}
+</script>

@@ -1,64 +1,153 @@
 ---
 sidebar: auto
 ---
-# Chrome
+# 扩展&应用
 
-Chrome浏览器除了页面渲染速度快，使用v8引擎大幅度提升js运行速度之外，可以支持开发者通过编写程序扩充其功能，还能使用HTML来编写编写桌面程序。
+## 扩展简易入门例子
 
-## Chrome 扩展&应用
+### 配置文件
 
-扩展主要用于对浏览器功能的增强，可以在浏览器工具栏显示图标。应用可以脱离浏览器运行，更像是一个运行在一个独立的环境当中，可以调用更加底层的接口，比如串口、usb、本地文件读写等等。
-
-扩展或者应用是一个文件的集合，扩展被安装之后，就会读取其中的manifest.json文件，这个文件固定命名为manifest.json，Chrome浏览器会依赖其中的配置来运行扩展或者应用。文件集合中一般来说包括html、css、javascript文件等，由于扩展或应用是基于Chrome浏览器运行的，也就是编程语言必然是javascript。由于v8引擎的出现，javascript的运行性能大幅度提升，甚至出现了可以作为后端语言的项目nodejs。
-
-## 简易入门配置
-
-### manifest.json
-
-本地新建一个文件夹 plugin，新建一个 manifest.json 文件
 ```javascript
 {
     "manifest_version": 2,
-    "name": "plugin",
+    "name": "TabsManager",
     "version": "1.0",
-    "description": "我的第一个Chrome扩展",
+    "description": "标签管理器",
     "browser_action":
     {
-        "default_title": "plugin",
-        "default_popup": "test.html"
+        "default_title": "TabsManager",
+        "default_popup": "./view/tabs-manager.html"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "background":
+    {
+        "scripts": [
+            "./js/tabs-manager.js"
+        ],
+        "persistent": true
     }
 }
 ```
-这个文件定义了扩展的名称、版本、描述、浏览器行为
 
 ### 页面呈现
-
-browser_action字段中，default_title属性定义了鼠标悬浮在扩展图标上所显示的文字，default_popup属性定义了点击扩展图标时所显示的页面。新建一个test.html文件
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>tabs-manager</title>
+    <link rel="stylesheet" href="../css/tabs-manager.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <script src="../js/tabs-manager.js"></script>
+    <script src="../js/sortable.js"></script>
 </head>
 <body>
-    <div id="testbox"></div>
-    <script src="./test.js"></script>
+    <div id="app">
+        <div class="app-header">
+            TabsManager
+        </div>
+        <div class="app-body">
+            <ul class="tab-list-wrap"></ul>
+        </div>
+    </div>
 </body>
 </html>
 ```
 
 ### 脚本编写
 
-脚本编写使用 javascript 写，由于不支持直接在 html 中编写 javascript，所以需要从外部引用js文件，新建一个test.js文件
 ```javascript
-window.onload=function(){
-    var box = document.getElementById("testbox")
-    testbox.innerHTML = "this is test plugin"
+window.onload = () => {
+    let app = document.getElementById("app"),
+        tabsListWrap = app.querySelector(".tab-list-wrap");
+
+    chrome.tabs.query({}, tabArray => onCreatedTabs(tabArray))
+    const onCreatedTabs = tabArray => tabArray.forEach(item => tabsListWrap.appendChild(onCreatedTabDom(item)))
+    const onCreatedTabDom = item => {
+        let tab = document.createElement("li")
+        tab.className = "tab-items flex flex-ver-center flex-align-justify"
+        if (item.active) tab.classList.add("active")
+        tab.innerHTML = `<div class="flex flex-ver-center"><img src="${item.favIconUrl}" class="fav-icon">${item.title}</div>
+                         <div class="flex flex-ver-center"><span class="drag-handle">☰</span><i class="fa fa-lg fa-close remove"></i></div>`
+        tab.setAttribute("tabId", item.id)
+        tab.onclick = e => e.target.classList.contains("remove") ? onRemoveTab(item.id, tab) : onChangeTab(item.id)
+        return tab;
+    }
+    const onMoveTab = (tabId, idx) => chrome.tabs.move(tabId, { index: idx || 0 })
+    const onChangeTab = tabId => chrome.tabs.update(tabId, { active: true });
+    const onRemoveTab = (tabId, tab) => chrome.tabs.remove(tabId, () => { tabsListWrap.removeChild(tab) });
+
+    let sortable = Sortable.create(tabsListWrap, {
+        animation: 50,
+        handle: ".drag-handle",
+        onUpdate: e => onMoveTab(Number(e.item.getAttribute("tabId")), e.newIndex)
+    });
 }
 ```
 
-### 插件加载
+## 应用简易入门例子
 
-打开 chrome 扩展程序管理后台或者打开 chrome://extensions/，然后打开开发者模式，加载已解压的扩展程序，然后就可以在工具栏的右侧看到新增的扩展程序。鼠标悬浮在图标时，显示 "plugin"，点击图标，界面呈现 "this is test plugin"。
+### 配置文件
+
+```javascript
+{
+    "manifest_version": 2,
+    "name": "SerialPort",
+    "version": "1.0",
+    "description": "串口",
+    "permissions": [
+        "serial"
+    ],
+    "app":{
+    	"background":{
+    		"scripts": ["./js/background.js"]
+    	}
+    }
+}
+```
+
+### 创建面板
+在background.js中创建面板
+
+```javascript
+window.onload = () => {
+    chrome.app.runtime.onLaunched.addListener(function() {
+        chrome.app.window.create('../view/serial-port.html', {
+            'id': 'serial',
+            'bounds': {
+                'width': 542,
+                'height': 360
+            },
+            'resizable': false,
+            'frame': 'none'
+        });
+    });
+}
+```
+
+### 界面呈现
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/serial-port.js"></script>
+</head>
+<body>
+	<div>这是谷歌插件串口信息的应用</div>	
+</body>
+</html>
+```
+
+### 脚本编写
+```javascript
+window.onload = () => {
+	chrome.serial.getDevices(function(portsArray){
+    	console.log(portsArray)
+	});
+}
+```
