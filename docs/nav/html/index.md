@@ -8,7 +8,7 @@
 	  			file:"fileReader.html"
 	  		},{
 	  			title:"ios iframe 宽度自适应",
-	  			file:"ios Iframe.html"
+	  			file:"iosIframe.html"
 	  		}],
 	      path:"/category/html/"
 	    }
