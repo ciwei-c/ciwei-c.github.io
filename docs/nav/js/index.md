@@ -12,6 +12,9 @@
 	  		},{
 	  			title:"stack",
 	  			file:"stack.html"
+	  		},{
+	  			title:"canvas波浪",
+	  			file:"wave.html"
 	  		}] ,
 	      path:"/category/js/"
 	    }
