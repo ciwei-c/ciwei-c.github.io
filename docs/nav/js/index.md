@@ -15,6 +15,9 @@
 	  		},{
 	  			title:"canvas波浪",
 	  			file:"wave.html"
+	  		},{
+	  			title:"购物车抛物效果",
+	  			file:"parabola.html"
 	  		}] ,
 	      path:"/category/js/"
 	    }
