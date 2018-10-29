@@ -9,11 +9,11 @@
 	    			<div class="btn add-btn" @click.stop="onAdd($event,item)">+</div>
 	    		</div>
 	    	</div>
-	    	<div class="car">
-	    		<img src="/car.png" alt="">
-	    		<div class="car-count">{{carCount}}</div>
-	    	</div>
 	    </div>
+    	<div class="car">
+    		<img src="/car.png" alt="">
+    		<div class="car-count">{{carCount}}</div>
+    	</div>
 		<input class="vertex-left" v-model="vertex" type="range" max="100" min="0">
     	<div>拖动调整抛物线路径</div>
 	</div>
@@ -30,7 +30,7 @@ export default {
         }
     },
     created(){
-    	var list = ["苹果","香蕉","橘子","橙子","石榴","蛇果","凤梨","梨子","桃子","白枣"];
+    	let list = ["苹果","香蕉","橘子","橙子","石榴","蛇果","凤梨","梨子","桃子","白枣"]
     	this.list = list.map(item=>{
     		return {
     			name:item,
@@ -39,51 +39,19 @@ export default {
     	})
     },
     mounted() {
-    	var car = document.querySelector(".car");
-    	var carCount = document.querySelector(".car-count");
+    	let car = document.querySelector(".car")
     	this.rect = {
-    		left:carCount.offsetLeft+car.offsetLeft,
-    		top:carCount.offsetTop+car.offsetTop
+    		left:car.offsetLeft,
+    		top:car.offsetTop
     	}
     },
     methods: {
         onAdd(e,item){
-        	item.count++;
-        	this.carCount++;
-        	var target = e.target;
-        	var dom = document.createElement("div");
-        	dom.innerText = item.name;
-        	this.parabola({
-        		el:dom,
-        		start:{
-        			top:target.offsetTop - window.scrollY,
-        			left:target.parentNode.previousSibling.offsetLeft
-        		},
-        		end:{
-        			top:this.rect.top - window.scrollY,
-        			left:this.rect.left
-        		},
-        		vertexLeft:this.vertex
-        	})
-        },
-        onMinus(item){
-        	item.count--;
-        	this.carCount--;
-        },
-        parabola:function(options){
-        	// 原理 y = ax^2 + b;
-            var start = options.start;
-            var end = options.end;
-            var count = 1;
-            var animationFrame = null;
-            var distance = Math.abs(end.left - start.left);
-            var stepDistance = distance/((options.time || 1000)/16);
-            var vertexLeft = start.top < end.top ? -(options.vertexLeft||50) : -(distance - (options.vertexLeft||50));
-            var a = ((-start.top) - (-end.top))/(Math.pow(vertexLeft,2)-Math.pow(vertexLeft+distance,2));
-            var c = -start.top - a*Math.pow(vertexLeft,2);
-
-            document.body.appendChild(options.el);
-            var style = {
+        	item.count++
+        	this.carCount++
+        	let target = e.target
+        	let dom = document.createElement("div")
+        	let style = {
 	            position:"fixed",
 	            fontSize:"12px",
 	            height:"35px",
@@ -94,28 +62,72 @@ export default {
 	            textAlign:"center",
 	            lineHeight:"35px",
 	            top:0,
-	            left:0,
-	            transform:'translate('+start.left+'px,'+start.top+'px)',
-	            '-webkit-transform':'translate('+start.left+'px,'+start.top+'px)'
+	            left:0
 	        }
-	        for(var k in style){
-	        	options.el.style[k] = style[k];
+	        for(let k in style){
+	        	dom.style[k] = style[k]
 	        }
-	        var direct = 1;
-	        if (end.left < start.left) direct *= -1;
-            var move = function(){
-                var newTranslate = 'translate('+(start.left + count*stepDistance*direct)+'px,'+ (-(a*Math.pow(vertexLeft + count*stepDistance,2) + c))+'px)';
-            	options.el.style.transform = newTranslate;
-            	options.el.style['-webkit-transform-'] = newTranslate;
-                count ++;
+        	dom.innerText = item.name
+        	this.parabola({
+        		el:dom,
+        		start:{
+        			top:target.offsetTop - window.scrollY,
+        			left:target.parentNode.previousSibling.offsetLeft
+        		},
+        		end:{
+        			top:this.rect.top,
+        			left:this.rect.left
+        		},
+        		vertexLeft:this.vertex
+        	})
+        },
+        onMinus(item){
+        	item.count--
+        	this.carCount--
+        },
+        parabola(options){
+            let start = options.start
+            let end = options.end
+            let animationFrame = null
+            // 默认中心轴距离起始点的距离50
+            let vertexLeft = options.vertexLeft||50
+            // 每16毫秒横轴移动多少距离（requestAnimationFrame一次动画约为16毫秒）
+            let distance = Math.abs(end.left - start.left)
+            let stepDistance = distance/((options.time || 1000)/16)
+            // 计算经过了多少次16毫秒，方便统计总共移动了多少距离
+            let count = 1
+            // 确定中心轴的横轴坐标点，代入已知点，得到抛物线方程式的未知参数
+            // 求得方程式 y = a*Math.pow(x,2) + b
+            let centralAxis = start.top < end.top ? -(vertexLeft) : -(distance - (vertexLeft))
+            let a = ((-start.top) - (-end.top))/(Math.pow(centralAxis,2)-Math.pow(centralAxis+distance,2))
+            let b = -start.top - a*Math.pow(centralAxis,2)
+
+            // 终点横坐标是否大于起点横坐标，确定抛物线动画路径向左还是向右
+	        let direct = 1
+	        if (end.left < start.left) direct *= -1
+
+            document.body.appendChild(options.el)
+	        const setTranslate = (x,y) => {
+	        	let translate = `translate(${x}px,${y}px)`
+	            options.el.style[`transform`] = translate
+	            options.el.style[`-webkit-transform`] = translate
+	        }
+
+	        setTranslate(start.left,start.top)
+
+            const move = () => {
+            	let x = start.left+count*stepDistance*direct
+            	let y = -(a*Math.pow(centralAxis + count*stepDistance,2) + b)
+                setTranslate(x,y)
+                count ++
                 if(count*stepDistance > distance){
-                    cancelAnimationFrame(animationFrame);
-                    options.el.remove();
+                    cancelAnimationFrame(animationFrame)
+                    options.el.remove()
                 }else{
-                    animationFrame = requestAnimationFrame(move);
+                    animationFrame = requestAnimationFrame(move)
                 }
             }
-           move();
+           	move()
         }
     }
 }
@@ -129,21 +141,15 @@ export default {
 		    padding:0 20px;
 		}
 		.flex {
-			display: -webkit-box;
 		    display: -webkit-flex;
-		    display: -ms-flexbox;
 		    display: flex;
 		}
 		.flex-vc{
-		    -webkit-box-align: center;
 		    -webkit-align-items: center;
-		    -ms-flex-align: center;
 		    align-items: center;
 		}
 		.flex-aj{
-		    -webkit-box-pack: justify;
 		    -webkit-justify-content: space-between;
-		    -ms-flex-pack: justify;
 		    justify-content: space-between;
 		}
 		.list {
@@ -178,14 +184,16 @@ export default {
 			opacity:0.6;
 		}
 		.car {
-			text-align:right;
-		    border-top:1px solid #eee;
-		    padding:20px 0;
-		    position:relative;
+		    position:fixed;
+		    top:50%;
+		    transform:translateY(-50%);
+		    -webkit-transform:translateY(-50%);
+		    right:0%;
+		    z-index:1000;
 		    .car-count{
 		    	text-align:center;
 		    	position:absolute;
-		    	top:20%;
+		    	top:0;
 		    	right:0;
 		    	background:#f6503b;
 		    	color:#fff;
@@ -202,7 +210,7 @@ export default {
 	}
 	@media screen and (max-width:959px){
 		.parabola-wrap {
-			width:100%;
+			width:90%;
 		}
 	}
 </style>
