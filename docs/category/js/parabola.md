@@ -99,15 +99,16 @@ export default {
             var c = -start.top - a*Math.pow(vertexLeft,2);
 
             document.body.appendChild(options.el);
-            var style = {position:"fixed",fontSize:"12px",height:"35px",width:"35px",background:"rgba(0,0,0,0.6)",borderRadius:"50%",color:"#fff",textAlign:"center",lineHeight:"35px",top:start.top + "px",left:start.left + "px"}
+            var style = {position:"fixed",fontSize:"12px",height:"35px",width:"35px",background:"rgba(0,0,0,0.6)",borderRadius:"50%",color:"#fff",textAlign:"center",lineHeight:"35px",top:0,left:0,transform:'translate('+start.left+'px,'+start.top+'px)','-webkit-transform':'translate('+start.left+'px,'+start.top+'px)'}
 	        for(var k in style){
 	        	options.el.style[k] = style[k];
 	        }
 	        var direct = 1;
 	        if (end.left < start.left) direct *= -1;
             var move = function(){
-            	options.el.style.top = -(a*Math.pow(vertexLeft + count*stepDistance,2) + c) + "px";
-            	options.el.style.left = start.left + count*stepDistance*direct + "px";
+                var newTranslate = 'translate('+(start.left + count*stepDistance*direct)+'px,'+ (-(a*Math.pow(vertexLeft + count*stepDistance,2) + c))+'px)';
+            	options.el.style.transform = newTranslate;
+            	options.el.style['-webkit-transform-'] = newTranslate;
                 count ++;
                 if(count*stepDistance > distance){
                     cancelAnimationFrame(animationFrame);
