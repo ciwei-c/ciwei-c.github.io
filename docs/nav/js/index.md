@@ -10,14 +10,14 @@
 	  			title:"dom",
 	  			file:"dom.html"
 	  		},{
-	  			title:"stack",
-	  			file:"stack.html"
-	  		},{
 	  			title:"canvas波浪",
 	  			file:"wave.html"
 	  		},{
 	  			title:"购物车抛物效果",
 	  			file:"parabola.html"
+	  		},{
+	  			title:"svg刻度条进度动画",
+	  			file:"svg.html"
 	  		}] ,
 	      path:"/category/js/"
 	    }
