@@ -9,6 +9,9 @@
 	  		},{
 	  			title:"vue组件",
 	  			file:"vueComponents.html"
+	  		},{
+	  			title:"git拉取分支",
+	  			file:"branch.html"
 	  		}],
 	      path:"/category/framework/"
 	    }
