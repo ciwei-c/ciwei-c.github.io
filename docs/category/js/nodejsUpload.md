@@ -6,8 +6,7 @@ sidebar: auto
 前端页面使用 FileReader 获取图片
 
 <!-- more -->
-```html
-//vue
+```vue
 <template>
   <input type="file" @change="onChooseImg($event)" />
 </template>

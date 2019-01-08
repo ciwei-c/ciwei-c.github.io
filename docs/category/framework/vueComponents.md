@@ -3,13 +3,11 @@ sidebar: auto
 ---
 # vue弹窗组件
 
-弹窗可以说是基本上每个前端项目中都会用到的东西，在vue中实现弹窗效果，有两种方式。
-
 1、注册成component组件使用。
 2、使用Vue.extend构造器创建子类，并创建组件实例来挂在自定义元素上。
 以alert弹窗为例，先实现一个alert的component
 
-```html
+```vue
 <template>
     <transition name="fade">
         <div class="alert"  v-if="isShow">
@@ -61,7 +59,7 @@ import alert from "./alert.vue"
 Vue.component("myAlert",alert);
 ```
 
-```html
+```vue
 <!-- vue 文件 -->
 <template>
   <div @click="showAlert()">打开弹窗</div>
@@ -132,8 +130,3 @@ export default {
 <style scoped>
 </style>
 ```
-
-## 小结
-
-通过以上两种方式简单实现了一下vue.js的alert弹窗组件，仅作一下小结。
-可以拓展开来实现更多的自定义参数，如弹窗类型、样式、定时等，也可实现confirm确认组件，toast提示组件，loading加载中效果等。

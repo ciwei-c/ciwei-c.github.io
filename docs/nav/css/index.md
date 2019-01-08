@@ -4,7 +4,7 @@
 	  data () {
 	    return {
 	      artics: [{
-	  			title:"回流和重绘",
+	  			title:"回流重绘",
 	  			file:"reflow.html"
 	  		},{
 	  			title:"flex兼容写法",

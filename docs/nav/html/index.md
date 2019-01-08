@@ -4,7 +4,7 @@
 	  data () {
 	    return {
 	      artics: [{
-	  			title:"FileReader",
+	  			title:"fileReader",
 	  			file:"fileReader.html"
 	  		},{
 	  			title:"ios iframe 宽度自适应",
