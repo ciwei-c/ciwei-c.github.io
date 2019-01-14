@@ -34,8 +34,8 @@ export default {
     }
     .artic-item:hover {
         cursor: pointer;
-        border-left:5px solid #3eaf7c;
-        color: #3eaf7c;
+        // border-left:5px solid #3eaf7c;
+        color: #000;
     }
 }
 
