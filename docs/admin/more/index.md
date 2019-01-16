@@ -3,11 +3,16 @@
 	export default {
 	  data () {
 	    return {
-	      artics: [{
-	  			title:"git拉取分支",
-	  			file:"branch.html"
-	  		}],
-	      path:"/admin/more/"
+	    	artics:{
+		      	more:{
+			      	data:[{
+			  			title:"git常用操作",
+			  			file:"git.html"
+			  		}],
+			  		classify:""
+		      	}
+		    },
+	      	path:"/admin/more/"
 	    }
 	  }
 	}

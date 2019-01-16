@@ -1,15 +1,18 @@
 ---
 sidebar: auto
 ---
-# svg 实现刻度进度条动画
-## 需求
-ucd的一个需求，实现刻度类的进度条，并且逐步的呈现地图星光点（如下图），权衡之后采用svg绘制。
-<img-con src="/map.jpg"></img-con>
+## 刻度效果
 
-## 效果
 <svg-scale></svg-scale>
 
+## 需求
+<img-con src="/map.jpg"></img-con>
+
 ## 实现
+
+	defs 标签复用定义渐变刻度、长刻度、短刻度模块
+	use 标签循环生成
+
 ```vue
 <template>
 	<div>

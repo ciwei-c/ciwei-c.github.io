@@ -1,7 +1,10 @@
 <template>
     <div class="artic-item-wrap">
-        <div v-for="item in data" class="artic-item" @click="moveToView(item.file)">
-            <div>{{item.title}}</div>
+        <div v-for="artic in data">
+            <div v-if="artic.classify" class="artic-classify">{{artic.classify}}</div>
+            <div v-for="item in artic.data" class="artic-item" @click="moveToView(item.file)">
+                <div>{{item.title}}</div>
+            </div>
         </div>
     </div>
 </template>
@@ -24,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
 .artic-item-wrap {
     .artic-item {
-        padding: 5px 10px;
+        padding: 5px 20px;
         box-sizing: border-box;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -34,8 +37,10 @@ export default {
     }
     .artic-item:hover {
         cursor: pointer;
-        // border-left:5px solid #3eaf7c;
         color: #000;
+    }
+    .artic-classify {
+        margin:10px 0 5px 0;
     }
 }
 

@@ -185,9 +185,7 @@ export default {
 		}
 		.car {
 		    position:fixed;
-		    top:50%;
-		    transform:translateY(-50%);
-		    -webkit-transform:translateY(-50%);
+		    top:70%;
 		    right:0%;
 		    z-index:1000;
 		    .car-count{
