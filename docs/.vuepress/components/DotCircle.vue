@@ -4,6 +4,7 @@
 			<canvas id="canvas" ></canvas>
 		</div>
 		<input v-model="score" type="range" max="100" min="0" step="5">
+		<div>拖动进度条查看效果</div>
 	</div>
 </template>
 <script>
@@ -131,7 +132,7 @@ export default {
 	text-align:center;
 	input {
 		width:100%;
-		margin-top:20px;
+		margin:20px 0;
 	}
 	.canvas-wrap{
 		padding: 20px;

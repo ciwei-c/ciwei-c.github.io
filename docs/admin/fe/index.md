@@ -6,20 +6,23 @@
 	      artics:{
 	      	work:{
 		      	data:[{
-		  			title:"海浪",
+		  			title:"海浪动画",
 		  			file:"wave.html"
 		  		},{
-		  			title:"抛物",
+		  			title:"抛物效果",
 		  			file:"parabola.html"
 		  		},{
 		  			title:"刻度",
 		  			file:"scale.html"
 		  		},{
-		  			title:"点状环形",
+		  			title:"点状环形图",
 		  			file:"dotcircle.html"
 		  		},{
 		  			title:"iframe自适应 (ios H5)",
 		  			file:"iosIframe.html"
+		  		},{
+		  			title:"webview H5 小结",
+		  			file:"h5.html"
 		  		}],
 		  		classify:"工作记录"
 	      	},
