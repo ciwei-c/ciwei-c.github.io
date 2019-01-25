@@ -61,7 +61,7 @@ module: {
  }
 ```
 
-#### 3、组件封装 SvgIcon.vue
+#### 3、组件封装 SvgIcon.vue 
 ```vue
 <template>
   <svg class="svg-icon" 
