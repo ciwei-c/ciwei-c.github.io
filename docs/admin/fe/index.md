@@ -9,6 +9,9 @@
 		  			title:"海浪动画",
 		  			file:"wave.html"
 		  		},{
+		  			title:"vue svg图标",
+		  			file:"svgIcon.html"
+		  		},{
 		  			title:"抛物效果",
 		  			file:"parabola.html"
 		  		},{
