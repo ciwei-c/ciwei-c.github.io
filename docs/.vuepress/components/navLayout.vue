@@ -1,7 +1,7 @@
 <template>
     <div class="artic-item-wrap">
         <div v-for="artic in data">
-            <div v-if="artic.classify" class="artic-classify">{{artic.classify}}</div>
+            <div v-if="artic.classify" class="artic-classify">{{artic.classify}} <span class="artic-subtitle">{{artic.subtitle}}</span></div>
             <div v-for="item in artic.data" class="artic-item" @click="moveToView(item.file)">
                 <div>{{item.title}}</div>
             </div>
@@ -41,6 +41,10 @@ export default {
     }
     .artic-classify {
         margin:10px 0 5px 0;
+    }
+    .artic-subtitle {
+        color:#a8a8a8;
+        font-size:12px;
     }
 }
 
