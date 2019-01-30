@@ -15,6 +15,9 @@
 		  			title:"抛物效果",
 		  			file:"parabola.html"
 		  		},{
+		  			title:"高德地图星光",
+		  			file:"starmap.html"
+		  		},{
 		  			title:"刻度条",
 		  			file:"scale.html"
 		  		},{
