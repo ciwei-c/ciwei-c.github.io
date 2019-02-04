@@ -16,10 +16,8 @@ module.exports = {
                 { text: 'front-end', link: '/admin/fe/' },
                 { text: 'more', link: '/admin/more/'}
             ]
-        },{
-            text: 'resume',
-            link: '/admin/resume/' 
         }],
+        sidebar: 'auto',
         lastUpdated: true,
     }
 }

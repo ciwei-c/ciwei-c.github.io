@@ -1,5 +1,7 @@
 ---
 sidebar: auto
+prev: true
+next: true
 ---
 ## 点状环形效果
 <dot-circle></dot-circle>
