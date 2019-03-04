@@ -4,16 +4,6 @@ sidebar: auto
 
 # reflow & repaint
 
-## 页面呈现流程
-
-一个页面在浏览器的呈现有如下步骤：
-
-dom树：浏览器把获取到的HTML代码解析成1个DOM树，HTML中的每个tag都是DOM树中的1个节点，根节点就是我们常用的document对象。DOM树里包含了所有HTML标签，包括display:none隐藏，还有用JS动态添加的元素等。
-
-css：浏览器把所有样式(用户定义的CSS和用户代理)解析成样式结构体，在解析的过程中会去掉浏览器不能识别的样式，比如IE会去掉-moz开头的样式，而FF会去掉_开头的样式。
-
-render tree：DOM Tree 和样式结构体组合后构建render tree。render tree类似于DOM tree，但区别很大，render tree能识别样式，render tree中每个NODE都有自己的style，而且 render tree不包含隐藏的节点 (比如display:none的节点，还有head节点)，因为这些节点不会用于呈现，而且不会影响呈现的，所以就不会包含到 render tree中。注意 visibility:hidden隐藏的元素还是会包含到 render tree中的，因为visibility:hidden 会影响布局(layout)，会占有空间。根据CSS2的标准，render tree中的每个节点都称为Box (Box dimensions)，理解页面元素为一个具有填充、边距、边框和位置的盒子。
-
 ## reflow ( 回流 )
 
 当页面的布局发生改变或者内容发生变化时，浏览器需要重新计算和构建页面称之为回流。发生回流的情况有如下几点：

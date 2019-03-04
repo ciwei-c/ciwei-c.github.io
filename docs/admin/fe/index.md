@@ -32,10 +32,13 @@
 	      	},
 	  		other:{
 		  		data:[{
-		  			title:"reflow & repaint",
+		  			title:"页面渲染与加载",
+		  			file:"render.html"
+		  		},{
+		  			title:"重绘与回流",
 		  			file:"reflow.html"
 		  		},{
-		  			title:"flex",
+		  			title:"弹性布局",
 		  			file:"flex.html" 
 		  		},{
 		  			title:"fileReader",
