@@ -28,7 +28,29 @@
 		  			file:"h5.html"
 		  		}],
 		  		classify:"记录",
-		  		subtitle:"工作中一些小东西的简单记录"
+		  		subtitle:"工作中一些小东西的简单记录",
+		  		subpath:"work"
+	      	},
+	      	ts:{
+		      	data:[{
+		  			title:"装饰器",
+		  			file:"decorater.html"
+		  		},{
+		  			title:"泛型",
+		  			file:"generic.html"
+		  		},{
+		  			title:"vue-property-decorator",
+		  			file:"vueproperty.html"
+		  		},{
+		  			title:"ts vuex",
+		  			file:"vuexclass.html"
+		  		},{
+		  			title:"ts vue Mixin",
+		  			file:"vuemixin.html"
+		  		}],
+		  		classify:".ts",
+		  		subtitle:"typescrit 学习记录",
+		  		subpath:"ts"
 	      	},
 	  		other:{
 		  		data:[{
@@ -51,7 +73,8 @@
 		  			file:"mvvm.html"
 		  		}],
 		  		classify:"其他",
-		  		subtitle:"就是其他"
+		  		subtitle:"就是其他",
+		  		subpath:"other"
 	  		}
 	      },
 	      path:"/admin/fe/"

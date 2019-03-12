@@ -1,9 +1,11 @@
 <template>
     <div class="artic-item-wrap">
-        <div v-for="artic in data">
-            <div v-if="artic.classify" class="artic-classify">{{artic.classify}} <span class="artic-subtitle">{{artic.subtitle}}</span></div>
-            <div v-for="item in artic.data" class="artic-item" @click="moveToView(item.file)">
-                <div>{{item.title}}</div>
+        <div v-for="artics in articData" class="clearfix">
+            <div v-for="artic in artics" class="artic-ul">
+                <div v-if="artic.classify" class="artic-classify">{{artic.classify}} <span class="artic-subtitle">{{artic.subtitle}}</span></div>
+                <div v-for="item in artic.data" class="artic-item" @click="moveToView(`${artic.subpath}/${item.file}`)">
+                    <div>{{item.title}}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -14,6 +16,19 @@ export default {
     props: {
         data: Array,
         path: String
+    },
+    data(){
+        return {
+            articData:[]
+        }
+    },
+    created(){
+        Object.keys(this.data).forEach((k,idx)=>{
+            if(idx %2 == 0){
+                this.articData.push([])
+            }
+            this.articData[this.articData.length-1].push(this.data[k])
+        })
     },
     methods: {
         moveToView(file) {
@@ -46,11 +61,22 @@ export default {
         color:#a8a8a8;
         font-size:12px;
     }
+    .artic-ul {
+        margin-bottom:20px;
+    }
 }
-
+@media screen and (min-width:760px) {
+    .artic-ul {
+        float:left;
+        width:50%;
+    }
+}
 .artic-item-wrap:after {
     content: "";
     display: block;
     clear: both;
+}
+.clearfix{
+    overflow:hidden
 }
 </style>
