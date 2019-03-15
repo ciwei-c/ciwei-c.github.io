@@ -28,7 +28,6 @@ export default class MixinPoint extends Vue {
     }
 }
 ```
-
 ```typescript
 import mixin from '@/mixin/mixin.ts'
 
