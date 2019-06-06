@@ -52,8 +52,7 @@ conts panel = vscode.window.createWebviewPanel(
 
 ### 状态保持
 默认情况下，webview在后台的时候，会丢失全部的数据，如果希望保持长期的状态，需要处理状态保持的情况，对此，vscode有给出解决方案
-#### registerWebviewPanelSerializer
-注册一个webview面板序列化
+
 #### getState()、setState()
 vscode在webview中提供了一个方法 acquireVsCodeApi()，返回值一个对象，存在三个方法
 ```javascript
@@ -75,5 +74,16 @@ if(oldState && oldState.count){
 setInterval(()=>{
     vscode.setState({count:count++});
 },1000)
+```
+#### registerWebviewPanelSerializer
+注册一个webview面板序列化，可以在vscode重启后自动回复webview，建立在setState()和getState()之上
+
+调用方法
+```
+vscode.window.registerWebviewPanelSerializer('webviewtype', {
+    async deserializeWebviewPanel(webviewPanel: vscode.WebviewPanel, state: any) {
+        console.log(`Got state: ${state}`);
+    }
+});
 ```
 #### retainContextWhenHidden

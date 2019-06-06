@@ -9,7 +9,8 @@
 			  			title:"git常用操作",
 			  			file:"git.html"
 			  		}],
-			  		classify:""
+						classify:"",
+						subpath:"git"
 		      	}
 		    },
 	      	path:"/admin/more/"

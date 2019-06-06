@@ -2,12 +2,59 @@
 sidebar: auto
 ---
 
+# ts vue
+
+## vuex-class
+:::tip
+- 在vue项目中，使用typeScript写vuex，需要引入vue-class
+
+- vue-class 提供许多装饰器来处理
+:::
+
+```typescript
+import {Getter, Mutation, State} from 'vuex-class'
+
+@Component
+export default class About extends Vue {
+  @Getter("count") count!:number
+  @Mutation("caculate") caculate!:Function
+}
+```
+store 的写法较原先可以基本不变
+```typescript
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+interface State {
+  count:number
+}
+let state:State = {
+  count:1
+}
+export default new Vuex.Store({
+  state: state,
+  mutations: {
+    caculate(state:State,payload:number){
+      state.count += payload
+    }
+  },
+  getters: {
+    count(state:State){
+      return state.count
+    }
+  }
+})
+
+```
+
 ## vue-property-decorator
 使用
 ```typescript
-import { Component, Prop, Vue , Emit, Provide, Inject, Model, Watch } from 'vue-property-decorator'
+import { Component, Prop, Vue , Emit, Provide, Inject, Model, Watch, Mixins } from 'vue-property-decorator'
 ```
-## @Model
+### @Model
 ```typescript
 // 父组件
 // vue
@@ -38,7 +85,7 @@ export default class ChildComponents extends Vue {
   input(){}
 }
 ```
-## @Emit
+### @Emit
 ```typescript
 // 父组件
 // vue
@@ -70,7 +117,7 @@ export default class ChildComponents extends Vue {
 ::: tip
 @Emit( )若没有传递参数，那么事件名为函数名，camelCase名称将转换为kebab-case。
 :::
-## @Prop
+### @Prop
 ```typescript
 // 父组件
 <child-components msg="prop"></child-components>
@@ -82,7 +129,7 @@ export default class ChildComponents extends Vue {
   @Prop() private msg!: string;
 }
 ```
-## @Provide/@Inject
+### @Provide/@Inject
 :::tip
 父子组件之间数据不便传输，或者子组件想调用父组件的方法，可以在父组件使用@Provide，子组件@Inject调用
 :::
@@ -105,7 +152,7 @@ export default class ChildComponents extends Vue {
   @Inject('fn') fn!:Function
 }
 ```
-## @Watch
+### @Watch
 ```typescript
 @Component
 export default class About extends Vue {
@@ -113,5 +160,15 @@ export default class About extends Vue {
   @Watch('value', { immediate: true, deep: true })
   onValueChanged(val: string, oldVal: string) { 
   }
+}
+```
+
+### @Mixins
+```typescript
+import SomeMixin from '@/mixin/SomeMixin' 
+
+@Component
+export default class MixinsCompenent extends Mixins(Vue, SomeMixin) {
+  // todo
 }
 ```
