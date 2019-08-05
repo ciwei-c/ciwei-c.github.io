@@ -4,17 +4,18 @@ module.exports = {
     port: 8888,
     head: [
         ['link', { rel: 'icon', href: `/logo.jpg` }],
+        ['link', { rel:'stylesheet', href: `/reset.css` }],
         ['script', { src: '/canvas.js' ,defer:'defer'}]
     ],
     themeConfig: {
         nav: [{ 
-        	text: 'home', 
+        	text: '首页', 
         	link: '/' 
         },{
-            text: 'notes',
+            text: '笔记',
             items: [
-                { text: 'front-end', link: '/admin/fe/' },
-                { text: 'more', link: '/admin/more/'}
+                { text: '前端', link: '/admin/fe/' },
+                { text: '更多', link: '/admin/more/'}
             ]
         }],
         sidebar: 'auto',

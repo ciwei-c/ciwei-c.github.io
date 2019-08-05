@@ -1,7 +1,7 @@
 ---
 sidebar: auto
 ---
-## 点状环形效果
+## 效果
 <dot-circle></dot-circle>
 
 ## 实现

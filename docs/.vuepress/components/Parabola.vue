@@ -158,7 +158,7 @@ export default {
 		}
 		.list-count {
 			padding:0 10px;
-			width:20px;
+			width:40px;
 			text-align:center;
 		}
 		.vertex-left {

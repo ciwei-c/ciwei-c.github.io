@@ -2,7 +2,7 @@
 sidebar: auto
 ---
 
-## 高德地图星光效果
+## 效果
 <star-map></star-map>
 
 ## 实现

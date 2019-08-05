@@ -1,7 +1,7 @@
 ---
 sidebar: auto
 ---
-## 抛物效果
+## 效果
 
 
 <Parabola></Parabola>

@@ -1,82 +1,73 @@
 <template>
-    <div class="artic-item-wrap">
-        <div v-for="artics in articData" class="clearfix">
-            <div v-for="artic in artics" class="artic-ul">
-                <div v-if="artic.classify" class="artic-classify">{{artic.classify}} <span class="artic-subtitle">{{artic.subtitle}}</span></div>
-                <div v-for="item in artic.data" class="artic-item" @click="moveToView(`${artic.subpath}/${item.file}`)">
-                    <div>{{item.title}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <ul class="artic-item-wrap">
+        <li v-for="artic in artics">
+            <span class="artic-date">{{artic.date}}</span>
+            <h2>
+                <router-link :to="`${path}${artic.file}`">{{artic.title}}</router-link>
+            </h2>
+        </li>
+    </ul>
 </template>
 <script>
 export default {
-    name: "NavLayout",
-    props: {
-        data: Array,
-        path: String
+  name: "NavLayout",
+  props: {
+    data: {
+      type: Array,
+      default() {
+        return [];
+      }
     },
-    data(){
-        return {
-            articData:[]
-        }
-    },
-    created(){
-        Object.keys(this.data).forEach((k,idx)=>{
-            if(idx %2 == 0){
-                this.articData.push([])
-            }
-            this.articData[this.articData.length-1].push(this.data[k])
-        })
-    },
-    methods: {
-        moveToView(file) {
-            this.$router.push({
-                path: `${this.path}${file}`
-            })
-        }
+    path: String
+  },
+  date() {
+    return {
+      artics: []
+    };
+  },
+  created() {
+    this.artics = this.data.sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+  },
+  methods: {
+    moveToView(file) {
+      this.$router.push({
+        path: `${this.path}${file}`
+      });
     }
-}
+  }
+};
 </script>
 <style lang="stylus" scoped>
 .artic-item-wrap {
-    .artic-item {
-        padding: 5px 20px;
-        box-sizing: border-box;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        color: #3eaf7c;
-        transition:border-width 0.3s;
+    li {
+        list-style: none;
+        border-bottom: 1px solid #e6e6e6;
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+
+        .artic-date {
+            width: 120px;
+            transform: translateY(-2%);
+        }
+
+        h2 {
+            flex: 1;
+            font-size: 18px;
+            letter-spacing: 1px;
+            border-bottom: none;
+            margin: 0;
+
+            a {
+                color: #444;
+            }
+
+            a:hover {
+                color: #3eaf7c;
+            }
+        }
     }
-    .artic-item:hover {
-        cursor: pointer;
-        color: #000;
-    }
-    .artic-classify {
-        margin:10px 0 5px 0;
-    }
-    .artic-subtitle {
-        color:#a8a8a8;
-        font-size:12px;
-    }
-    .artic-ul {
-        margin-bottom:20px;
-    }
-}
-@media screen and (min-width:760px) {
-    .artic-ul {
-        float:left;
-        width:50%;
-    }
-}
-.artic-item-wrap:after {
-    content: "";
-    display: block;
-    clear: both;
-}
-.clearfix{
-    overflow:hidden
 }
 </style>

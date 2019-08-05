@@ -1,7 +1,7 @@
 ---
 sidebar: auto
 ---
-## 刻度效果
+## 效果
 
 <svg-scale></svg-scale>
 
