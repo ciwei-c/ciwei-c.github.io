@@ -4,9 +4,17 @@ export default {
 	data () {
 		return {
 			artics:[{
+				title:"webpack代理服务热更新",
+				file:"proxy.html",
+				date:"Oct 05, 2019"
+			},{
+				title:"webpack本地热更新Mock服务器",
+				file:"mock.html",
+				date:"Oct 05, 2019"
+			},{
 				title:"canvas波浪加载动画",
 				file:"wave.html",
-				date:"Sep 03, 2018"
+				date:"Mar 03, 2019"
 			},{
 				title:"抛物效果",
 				file:"parabola.html",
@@ -20,11 +28,11 @@ export default {
 				file:"dotcircle.html",
 				date:"Jan 16, 2019"
 			},{
-				title:"装饰器",
+				title:"typescript装饰器使用",
 				file:"decorater.html",
 				date:"Mar 12, 2019"
 			},{
-				title:"ts vue",
+				title:"vue中使用typescript",
 				file:"tsvue.html",
 				date:"Jun 06, 2019"
 			},{
