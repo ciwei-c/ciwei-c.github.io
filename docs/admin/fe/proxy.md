@@ -34,7 +34,7 @@ module.exports = {
 }
 //server.js
 module.exports = app => {
-    // todo
+ // todo
 }
 ```
 

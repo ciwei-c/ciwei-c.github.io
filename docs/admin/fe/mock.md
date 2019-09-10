@@ -2,3 +2,67 @@
 sidebar: auto
 ---
 # webpack本地热更新Mock服务器
+
+开发过程中，为了更好的前后端分离，以及人为的制造更多的场景，有一个Mock服务器将会带来很大的便利。尤其在文档先行的开发模式，有了定义好的字段和接口，通过先写 mock 接口百分百还原真实环境，联调的时候直接暂停Mock服务
+
+## mock.js
+
+### 随机数据
+
+mock.js是一个能够随机生成数据的js库，用法很简单，例如生成一个长度随机为1-10之间数组，官方示例如下
+
+```javascript
+// 使用 Mock
+var Mock = require('mockjs')
+var data = Mock.mock({
+    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+    'list|1-10': [{
+        // 属性 id 是一个自增数，起始值为 1，每次增 1
+        'id|+1': 1
+    }]
+})
+```
+还有许多内置的随机数据，包括随机日期、图片、名字、颜色、文字、地址等等。
+
+例如随机生成名字
+```js
+Random.name()
+// => "Larry Wilson"
+```
+具体可参考[官方文档](https://github.com/nuysoft/Mock/wiki/Getting-Started)
+
+### 拦截Ajax及缺点
+Mock.mock可接受参数：Mock.mock( rurl?, rtype?, template|function( options ) )，当 ajax 请求的路径与 rurl完全一致的时候，可以拦截ajax请求，其原理是修改该请求的方法，在其发送请求之前就把值返回。
+
+但是，Mock.mock虽然可以拦截 Ajax 请求，但是有几点不好的地方：
+
+- 1、拦截的请求返回的值其实没有经过请求，是直接返回的，也就是在开发者工具的 Network 面板是看不到的，不利于调试
+- 2、接口的定义不够灵活，虽然可以通过正则来匹配路由，对于有些接口看起来还是不太方便，例如restful接口，查询某个用户id（假设由大小写字母、数字组合）的信息接口为
+```javascript
+"/user/:user_id"
+```
+用正则表示的话
+```javascript
+/\/user\/[a-zA-Z0-9]/
+```
+相比之下正则看起来不直观，无法知道到底是在请求什么
+
+## 解决方案
+
+### devServer.after
+webpack使用devServer启动服务器，实际上就是启动一个nodejs服务器，在配置项中，有一项是devServer.after，该属性值接受一个方法，方法传递的参数是 express() 返回的对象，以vue.config.js为例
+
+```javascript
+//vue.config.js
+module.exports = {
+  devServer: {
+    after: require("./server.js")
+  }
+}
+//server.js
+module.exports = app => {
+ // todo
+}
+```
+### 启动Mock服务器
+基于上述，可以
