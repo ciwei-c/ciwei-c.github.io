@@ -32,21 +32,20 @@ Random.name()
 具体可参考[官方文档](https://github.com/nuysoft/Mock/wiki/Getting-Started)
 
 ### 拦截Ajax及缺点
-Mock.mock可接受参数：Mock.mock( rurl?, rtype?, template|function( options ) )，当 ajax 请求的路径与 rurl完全一致的时候，可以拦截ajax请求，其原理是修改该请求的方法，在其发送请求之前就把值返回。
+Mock.mock可接受参数：Mock.mock( rurl?, rtype?, template|function( options ) )，当 ajax 请求的路径与 rurl 匹配的时候，可以拦截ajax请求，其原理是在其发送请求之前就把值返回。
 
-但是，Mock.mock虽然可以拦截 Ajax 请求，但是有几点不好的地方：
-
-- 1、拦截的请求返回的值其实没有经过请求，是直接返回的，也就是在开发者工具的 Network 面板是看不到的，不利于调试
+::: danger Mock.mock虽然可以拦截 Ajax 请求，但是有几点不好的地方：
+- 1、拦截的请求返回的值其实没有经过请求，是直接返回的，也就是在开发者工具的 Network 面板是看不到的，不利于调试也不够仿真
 - 2、接口的定义不够灵活，虽然可以通过正则来匹配路由，对于有些接口看起来还是不太方便，例如restful接口，查询某个用户id（假设由大小写字母、数字组合）的信息接口为
-```javascript
+```
 "/user/:user_id"
 ```
 用正则表示的话
-```javascript
+```
 /\/user\/[a-zA-Z0-9]/
 ```
 相比之下正则看起来不直观，无法知道到底是在请求什么
-
+:::
 ## 解决方案
 
 ### devServer.after
@@ -65,4 +64,29 @@ module.exports = app => {
 }
 ```
 ### 启动Mock服务器
-基于上述，可以
+基于上述，可以在 webpack 启动项目服务的时候，添加一个Mock服务器
+
+::: tip 我们期望这个Mock服务器有几个基本功能
+- 1、根据一份配置文件生成
+- 2、当配置文件变化时，热更新服务
+- 3、可对任意接口切换对接mock数据还是真实数据
+- 4、支持restful
+- 5、……
+:::
+
+定义配置，假设配置项的数据结构如下（简单示例，视接口复杂程度可自行拓展）
+```javascript
+module.exports = [
+  {
+    data: {            // mock数据
+      "code|0-1": 1,   // 随机状态码
+      data:{
+        "name":"@name" // 随机名称
+      }
+    },
+    enable: true,      // 是否启用mock
+    method: 'get',     // 请求方法
+    url: '/user'       // 请求路径
+  }
+];
+```
