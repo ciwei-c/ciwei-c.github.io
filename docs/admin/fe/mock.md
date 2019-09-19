@@ -34,7 +34,7 @@ Random.name()
 ### 拦截Ajax及缺点
 Mock.mock可接受参数：Mock.mock( rurl?, rtype?, template|function( options ) )，当 ajax 请求的路径与 rurl 匹配的时候，可以拦截ajax请求，其原理是在其发送请求之前就把值返回。
 
-::: danger Mock.mock虽然可以拦截 Ajax 请求，但是有几点不好的地方：
+danger Mock.mock虽然可以拦截 Ajax 请求，但是有几点不好的地方：
 - 1、拦截的请求返回的值其实没有经过请求，是直接返回的，也就是在开发者工具的 Network 面板是看不到的，不利于调试也不够仿真
 - 2、接口的定义不够灵活，虽然可以通过正则来匹配路由，对于有些接口看起来还是不太方便，例如restful接口，查询某个用户id（假设由大小写字母、数字组合）的信息接口为
 ```
@@ -45,7 +45,6 @@ Mock.mock可接受参数：Mock.mock( rurl?, rtype?, template|function( options 
 /\/user\/[a-zA-Z0-9]/
 ```
 相比之下正则看起来不直观，无法知道到底是在请求什么
-:::
 ## 解决方案
 
 ### devServer.after
@@ -74,9 +73,55 @@ module.exports = app => {
 - 5、……
 :::
 
-定义配置，假设配置项的数据结构如下（简单示例，视接口复杂程度可自行拓展）
 ```javascript
-module.exports = [
+//vue.config.js
+module.exports = {
+  devServer: {
+    after: require("./server.js")
+  }
+}
+```
+
+```javascript
+//server.js
+const bodyParser = require('body-parser')
+const Mock = require('mockjs')
+// require 引入包的时候会有缓存，所以在读取配置项之前最好先删除require.cache的缓存，例如定义一个delRequireCache方法
+const fs = require('fs')
+const resolve = (p) => {
+  return path.join(__dirname, p)
+}
+const delRequireCache = (requirePath) => {
+  delete require.cache[resolve(requirePath)]
+}
+
+const registerRoutes = (app) => {
+  // 注册之前，先解绑之前注册的 mock 路径，否则新的将会被覆盖
+  unRegisterRoutes(app)
+  delRequireCache('./mock.js')
+  require('./mock.js').forEach(mock => {
+    app[mock.method](mock.url, (req, res) => {
+      res.json(Mock.mock(mock.data))
+    })
+    app._router.stack[app._router.stack.length - 1].isMockRoute = true
+  })
+}
+const unRegisterRoutes = app => {
+  app._router.stack = app._router.stack.filter(router => !router.isMockRoute)
+}
+module.exports = app => {
+  app.use(bodyParser.json()) // 解析响应body
+  app.use(bodyParser.urlencoded({ extended: true })) // 解析url
+  registerRoutes(app) // 注册需要 mock 的路径
+}
+```
+
+### 新建配置文件
+
+新建一个配置项文件mocks.js，假设配置项的数据结构如下（简单示例，视接口复杂程度可自行拓展）
+
+```javascript
+let mocks = [
   {
     data: {            // mock数据
       "code|0-1": 1,   // 随机状态码
@@ -89,4 +134,38 @@ module.exports = [
     url: '/user'       // 请求路径
   }
 ];
+module.exports = mocks.filter(mock => mock.enable)
+```
+上面的配置项表示当一个GET请求路路径为 /user 时，相应数据为可能为
+```json
+{
+  "code": 1,
+  "data": {
+    "name": "Donald Martin"
+  }
+}
+```
+
+### 热更新服务
+现在已经可以通过设置配置文件去设置mock接口及数据，现在还差一步，当修改配置文件的时候，自动重启和注册Mock服务，可以任意找一个可以监听文件变化的工具，这里使用chokidar，当配置文件发生变化时，重新注册代理
+
+```javascript
+const watch = (watchPath,app) => {
+  chokidar.watch(watchPath, {
+    ignoreInitial: true
+  }).on('all', (event, path) => {
+    if (event === 'change' || event === 'add' || event === 'unlink') {
+      try {
+        unRegisterRoutes(app)
+        registerRoutes(app)
+        console.log(chalk.magentaBright(`\n > Mock Server hot reload success! changed  ${path}`))
+      } catch (error) {
+        console.log(chalk.redBright(error))
+      }
+    }
+  })
+}
+module.exports = app => {
+  watch('./mock.js')
+}
 ```
