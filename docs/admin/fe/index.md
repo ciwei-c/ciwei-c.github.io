@@ -4,13 +4,17 @@ export default {
 	data () {
 		return {
 			artics:[{
+				title:"异常处理",
+				file:"error.html",
+				date:"Sep 026, 2019"
+			},{
 				title:"webpack代理服务热更新",
 				file:"proxy.html",
-				date:"Oct 05, 2019"
+				date:"Aug 05, 2019"
 			},{
 				title:"webpack本地热更新Mock服务器",
 				file:"mock.html",
-				date:"Oct 05, 2019"
+				date:"Aug 05, 2019"
 			},{
 				title:"canvas波浪加载动画",
 				file:"wave.html",
@@ -20,17 +24,9 @@ export default {
 				file:"parabola.html",
 				date:"Oct 26, 2018"
 			},{
-				title:"svg 刻度",
-				file:"scale.html",
-				date:"Jan 02, 2019"
-			},{
-				title:"雨滴状分数盘",
-				file:"dotcircle.html",
-				date:"Jan 16, 2019"
-			},{
 				title:"typescript装饰器使用",
 				file:"decorater.html",
-				date:"Mar 12, 2019"
+				date:"May 12, 2019"
 			},{
 				title:"vue中使用typescript",
 				file:"tsvue.html",
@@ -55,10 +51,6 @@ export default {
 				title:"svg icon",
 				file:"svgIcon.html",
 				date:"Dec 01, 2018"
-			},{
-				title:"ios iframe宽度自适应解决",
-				file:"iosIframe.html",
-				date:"Jun 08, 2018"
 			},{
 				title:"mvvm",
 				file:"mvvm.html",

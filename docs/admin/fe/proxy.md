@@ -116,4 +116,3 @@ const watch = (watchPath, app) => {
     })
 }
 ```
-
