@@ -14,8 +14,9 @@ module.exports = {
         },{
             text: '笔记',
             items: [
-                { text: '前端', link: '/admin/fe/' },
-                { text: '更多', link: '/admin/more/'}
+                { text: 'Js&Ts', link: '/admin/fe/' },
+                { text: '动画及样式', link: '/admin/style/'},
+                { text: '其他', link: '/admin/more/'}
             ]
         }],
         sidebar: 'auto',

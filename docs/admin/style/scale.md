@@ -5,9 +5,6 @@ sidebar: auto
 
 <svg-scale></svg-scale>
 
-## 需求
-<img-con src="/map.jpg"></img-con>
-
 ## 实现
 
 	defs 标签复用定义渐变刻度、长刻度、短刻度模块

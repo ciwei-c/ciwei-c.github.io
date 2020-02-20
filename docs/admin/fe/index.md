@@ -16,17 +16,13 @@ export default {
 				file:"mock.html",
 				date:"Aug 05, 2019"
 			},{
-				title:"canvas波浪加载动画",
-				file:"wave.html",
-				date:"Mar 03, 2019"
-			},{
-				title:"抛物效果",
-				file:"parabola.html",
-				date:"Oct 26, 2018"
-			},{
 				title:"typescript装饰器使用",
 				file:"decorater.html",
 				date:"May 12, 2019"
+			},{
+				title:"webview 内嵌 h5 相关",
+				file:"h5.html",
+				date:"Oct 12, 2018"
 			},{
 				title:"vue中使用typescript",
 				file:"tsvue.html",
@@ -40,17 +36,9 @@ export default {
 				file:"reflow.html",
 				date:"Mar 01, 2018"
 			},{
-				title:"弹性布局兼容写法",
-				file:"flex.html",
-				date:"Dec 10, 2017"
-			},{
 				title:"FileReader",
 				file:"fileReader.html",
 				date:"Dec 16, 2017"
-			},{
-				title:"svg icon",
-				file:"svgIcon.html",
-				date:"Dec 01, 2018"
 			},{
 				title:"mvvm",
 				file:"mvvm.html",
