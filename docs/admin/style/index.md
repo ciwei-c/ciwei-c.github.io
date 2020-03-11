@@ -28,6 +28,10 @@ export default {
 				file:"flex.html",
 				date:"Dec 10, 2017"
 			},{
+				title:"弹性布局下子元素不随内容撑开宽度处理",
+				file:"flexwidth.html",
+				date:"Dec 11, 2017"
+			},{
 				title:"svg icon",
 				file:"svgIcon.html",
 				date:"Sep 01, 2018"
