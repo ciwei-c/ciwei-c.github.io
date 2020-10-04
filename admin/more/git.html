@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>c | git 常用操作</title>
+    <meta name="description" content="less is more">
+    <link rel="icon" href="/logo.jpg">
+  <link rel="stylesheet" href="/reset.css">
+  <script src="/canvas.js" defer="defer"></script>
+    
+    <link rel="preload" href="/assets/css/0.styles.0478c24f.css" as="style"><link rel="preload" href="/assets/js/app.be7d675c.js" as="script"><link rel="preload" href="/assets/js/13.40a79dc6.js" as="script"><link rel="prefetch" href="/assets/js/1.60539e9a.js"><link rel="prefetch" href="/assets/js/2.0b75c505.js"><link rel="prefetch" href="/assets/js/3.9088ea5a.js"><link rel="prefetch" href="/assets/js/4.103fa36d.js"><link rel="prefetch" href="/assets/js/5.5d6b3b4d.js"><link rel="prefetch" href="/assets/js/6.114b708d.js"><link rel="prefetch" href="/assets/js/7.dd9d8651.js"><link rel="prefetch" href="/assets/js/8.a2807e46.js"><link rel="prefetch" href="/assets/js/9.060dcd8b.js"><link rel="prefetch" href="/assets/js/10.a41fbed4.js"><link rel="prefetch" href="/assets/js/11.345e8bb2.js"><link rel="prefetch" href="/assets/js/12.16c9c33b.js"><link rel="prefetch" href="/assets/js/14.c0fecdbc.js"><link rel="prefetch" href="/assets/js/15.a5a84037.js"><link rel="prefetch" href="/assets/js/16.ef9dd933.js"><link rel="prefetch" href="/assets/js/17.f8efa1f1.js"><link rel="prefetch" href="/assets/js/18.860330f4.js"><link rel="prefetch" href="/assets/js/19.fc85e39f.js"><link rel="prefetch" href="/assets/js/20.57c53a1b.js"><link rel="prefetch" href="/assets/js/21.ce188af7.js"><link rel="prefetch" href="/assets/js/22.3b8341f1.js"><link rel="prefetch" href="/assets/js/23.bebcb710.js"><link rel="prefetch" href="/assets/js/24.47df5d06.js"><link rel="prefetch" href="/assets/js/25.4fb5da28.js"><link rel="prefetch" href="/assets/js/26.3b16ca15.js"><link rel="prefetch" href="/assets/js/27.25e2f491.js"><link rel="prefetch" href="/assets/js/28.96cadd4b.js"><link rel="prefetch" href="/assets/js/29.efd2f108.js"><link rel="prefetch" href="/assets/js/30.2ff60806.js"><link rel="prefetch" href="/assets/js/31.7575c0b5.js"><link rel="prefetch" href="/assets/js/32.33ca77dc.js"><link rel="prefetch" href="/assets/js/33.04c33092.js"><link rel="prefetch" href="/assets/js/34.bb3f8ee0.js"><link rel="prefetch" href="/assets/js/35.62c4b9cf.js"><link rel="prefetch" href="/assets/js/36.132df95e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0478c24f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      c
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link router-link-active">其他</a></li></ul></div></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link router-link-active">其他</a></li></ul></div></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>git 常用操作</span><!----></p><ul class="sidebar-group-items"><li><a href="/admin/more/git.html#拉分支" class="sidebar-link">拉分支</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/more/git.html#回退" class="sidebar-link">回退</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/admin/more/git.html#reset" class="sidebar-link">reset</a></li><li class="sidebar-sub-header"><a href="/admin/more/git.html#revert" class="sidebar-link">revert</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="git-常用操作"><a href="#git-常用操作" aria-hidden="true" class="header-anchor">#</a> git 常用操作</h1><h2 id="拉分支"><a href="#拉分支" aria-hidden="true" class="header-anchor">#</a> 拉分支</h2><pre><code>1. 切换到被copy的分支（master），并且从远端拉取最新版本
+  $git checkout master
+  $git pull
+
+2. 从当前分支拉copy开发分支
+  $git checkout -b dev
+  Switched to a new branch 'dev'
+
+3. 把新建的分支push到远端
+  $git push origin dev
+
+4. 拉取远端分支
+  $git pull
+
+  There is no tracking information for the current branch.
+  Please specify which branch you want to merge with.
+  See git-pull(1) for details.
+
+  git pull &lt;remote&gt; &lt;branch&gt;
+
+  If you wish to set tracking information for this branch you can do so with:
+ 
+  git branch --set-upstream-to=origin/&lt;branch&gt; dev
+
+  经过验证，当前的分支并没有和本地分支关联，根据提示进行下一步：
+
+5. 关联
+  $git branch --set-upstream-to=origin/dev
+
+6. 再次拉取 验证
+  $git pull
+</code></pre><h2 id="回退"><a href="#回退" aria-hidden="true" class="header-anchor">#</a> 回退</h2><h3 id="reset"><a href="#reset" aria-hidden="true" class="header-anchor">#</a> reset</h3><p>回到某个目标版本，且目标版本之后的版本记录全部删除，HEAD指向目标版本</p><pre><code>1、查看历史版本号
+  $git log
+
+2、选择目标版本号
+
+3、使用 &quot;git reset --hard 目标版本号&quot; 命令回退
+  $git reset --hard 版本号
+
+4、使用 &quot;git push -f&quot; 提交更改，&quot;git push&quot; 会报错，因为我们本地库HEAD指向的版本比远程库的要旧
+  $git push -f
+</code></pre><h3 id="revert"><a href="#revert" aria-hidden="true" class="header-anchor">#</a> revert</h3><p>创建一个新的版本，且版本内容与目标版本一样，HEAD指向新版本</p><pre><code>1、查看历史版本号
+  $git log
+
+2、选择目标版本号
+
+3、使用 &quot;git revert -n 目标版本号&quot; ，可能会出现冲突，那么需要手动修改冲突的文件。 而且要git add 文件名。
+  $git revert -n 版本号
+
+4、提交
+  $git commit -m &quot;xxxx&quot;</code></pre></div><!----><!----></div></div></div>
+    <script src="/assets/js/13.40a79dc6.js" defer></script><script src="/assets/js/app.be7d675c.js" defer></script>
+  </body>
+</html>

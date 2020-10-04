@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>c | 装饰器</title>
+    <meta name="description" content="less is more">
+    <link rel="icon" href="/logo.jpg">
+  <link rel="stylesheet" href="/reset.css">
+  <script src="/canvas.js" defer="defer"></script>
+    
+    <link rel="preload" href="/assets/css/0.styles.0478c24f.css" as="style"><link rel="preload" href="/assets/js/app.be7d675c.js" as="script"><link rel="preload" href="/assets/js/28.96cadd4b.js" as="script"><link rel="prefetch" href="/assets/js/1.60539e9a.js"><link rel="prefetch" href="/assets/js/2.0b75c505.js"><link rel="prefetch" href="/assets/js/3.9088ea5a.js"><link rel="prefetch" href="/assets/js/4.103fa36d.js"><link rel="prefetch" href="/assets/js/5.5d6b3b4d.js"><link rel="prefetch" href="/assets/js/6.114b708d.js"><link rel="prefetch" href="/assets/js/7.dd9d8651.js"><link rel="prefetch" href="/assets/js/8.a2807e46.js"><link rel="prefetch" href="/assets/js/9.060dcd8b.js"><link rel="prefetch" href="/assets/js/10.a41fbed4.js"><link rel="prefetch" href="/assets/js/11.345e8bb2.js"><link rel="prefetch" href="/assets/js/12.16c9c33b.js"><link rel="prefetch" href="/assets/js/13.40a79dc6.js"><link rel="prefetch" href="/assets/js/14.c0fecdbc.js"><link rel="prefetch" href="/assets/js/15.a5a84037.js"><link rel="prefetch" href="/assets/js/16.ef9dd933.js"><link rel="prefetch" href="/assets/js/17.f8efa1f1.js"><link rel="prefetch" href="/assets/js/18.860330f4.js"><link rel="prefetch" href="/assets/js/19.fc85e39f.js"><link rel="prefetch" href="/assets/js/20.57c53a1b.js"><link rel="prefetch" href="/assets/js/21.ce188af7.js"><link rel="prefetch" href="/assets/js/22.3b8341f1.js"><link rel="prefetch" href="/assets/js/23.bebcb710.js"><link rel="prefetch" href="/assets/js/24.47df5d06.js"><link rel="prefetch" href="/assets/js/25.4fb5da28.js"><link rel="prefetch" href="/assets/js/26.3b16ca15.js"><link rel="prefetch" href="/assets/js/27.25e2f491.js"><link rel="prefetch" href="/assets/js/29.efd2f108.js"><link rel="prefetch" href="/assets/js/30.2ff60806.js"><link rel="prefetch" href="/assets/js/31.7575c0b5.js"><link rel="prefetch" href="/assets/js/32.33ca77dc.js"><link rel="prefetch" href="/assets/js/33.04c33092.js"><link rel="prefetch" href="/assets/js/34.bb3f8ee0.js"><link rel="prefetch" href="/assets/js/35.62c4b9cf.js"><link rel="prefetch" href="/assets/js/36.132df95e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0478c24f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      c
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link router-link-active">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link">其他</a></li></ul></div></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link router-link-active">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link">其他</a></li></ul></div></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>装饰器</span><!----></p><ul class="sidebar-group-items"><li><a href="/admin/fe/decorater.html#装饰器" class="sidebar-link">装饰器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/admin/fe/decorater.html#类装饰器" class="sidebar-link">类装饰器</a></li><li class="sidebar-sub-header"><a href="/admin/fe/decorater.html#类方法装饰器" class="sidebar-link">类方法装饰器</a></li><li class="sidebar-sub-header"><a href="/admin/fe/decorater.html#类方法参数装饰器" class="sidebar-link">类方法参数装饰器</a></li><li class="sidebar-sub-header"><a href="/admin/fe/decorater.html#类属性装饰器" class="sidebar-link">类属性装饰器</a></li></ul></li><li><a href="/admin/fe/decorater.html#示例" class="sidebar-link">示例</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/admin/fe/decorater.html#vscode-插件开发命令注册" class="sidebar-link">vscode 插件开发命令注册</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h2 id="装饰器"><a href="#装饰器" aria-hidden="true" class="header-anchor">#</a> 装饰器</h2><p>用法</p><pre class="language-typescript"><code><span class="token comment">// 修饰类</span>
+<span class="token keyword">function</span> <span class="token function">decoraterClass</span><span class="token punctuation">(</span><span class="token keyword">constructor</span><span class="token punctuation">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 修饰类函数</span>
+<span class="token keyword">function</span> <span class="token function">decoraterFn</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> propertyName<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> descriptor<span class="token punctuation">:</span> TypedPropertyDescriptor<span class="token operator">&lt;</span><span class="token builtin">Function</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 修饰类函数参数</span>
+<span class="token keyword">function</span> <span class="token function">decoraterParam</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> Object<span class="token punctuation">,</span> propertyKey<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">symbol</span><span class="token punctuation">,</span> parameterIndex<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 修饰类属性</span>
+<span class="token keyword">function</span> <span class="token function">decoraterVal</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> propertyKey<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+<span class="token punctuation">}</span>
+@decoraterClass
+<span class="token keyword">class</span> <span class="token class-name">Inst</span> <span class="token punctuation">{</span>
+    @decoraterFn
+    <span class="token function">fn</span><span class="token punctuation">(</span>@decoraterParam val<span class="token punctuation">:</span><span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    @decoraterVal
+    name<span class="token punctuation">:</span><span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="类装饰器"><a href="#类装饰器" aria-hidden="true" class="header-anchor">#</a> 类装饰器</h3><div class="tip custom-block"><p class="custom-block-title">参数</p><p>1、类本身</p></div><h3 id="类方法装饰器"><a href="#类方法装饰器" aria-hidden="true" class="header-anchor">#</a> 类方法装饰器</h3><div class="tip custom-block"><p class="custom-block-title">参数</p><p>1、如果修饰的是类的实例函数，那么target就是类的原型。如果修饰的是类的静态函数，那么target就是类本身</p><p>2、该函数的函数名</p><p>3、该函数的描述属性</p></div><h3 id="类方法参数装饰器"><a href="#类方法参数装饰器" aria-hidden="true" class="header-anchor">#</a> 类方法参数装饰器</h3><div class="tip custom-block"><p class="custom-block-title">参数</p><p>1、类本身</p><p>2、该参数所在的函数的函数名</p><p>3、该参数在函数参数列表中的索引值</p></div><h3 id="类属性装饰器"><a href="#类属性装饰器" aria-hidden="true" class="header-anchor">#</a> 类属性装饰器</h3><div class="tip custom-block"><p class="custom-block-title">参数</p><p>1、对于静态属性而言，第一个参数是类本身，对于实例属性而言，第一个参数是类的原型</p><p>2、属性的名字</p></div><h2 id="示例"><a href="#示例" aria-hidden="true" class="header-anchor">#</a> 示例</h2><h3 id="vscode-插件开发命令注册"><a href="#vscode-插件开发命令注册" aria-hidden="true" class="header-anchor">#</a> vscode 插件开发命令注册</h3><pre class="language-javascript"><code><span class="token comment">// command.js</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> vscode <span class="token keyword">from</span> <span class="token string">'vscode'</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span> <span class="token class-name">CommandsItem</span> <span class="token punctuation">{</span>
+  target<span class="token punctuation">:</span> any<span class="token punctuation">;</span>
+  commandId<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+  method<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>rest<span class="token punctuation">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> any<span class="token punctuation">;</span>
+  propertyName<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> allCommands<span class="token punctuation">:</span> CommandsItem<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Command</span><span class="token punctuation">(</span>commandId<span class="token punctuation">:</span> string<span class="token punctuation">)</span><span class="token punctuation">:</span> Function <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>target<span class="token punctuation">:</span> any<span class="token punctuation">,</span> propertyName<span class="token punctuation">:</span> string<span class="token punctuation">,</span> descriptor<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      allCommands<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> target<span class="token punctuation">,</span> commandId<span class="token punctuation">,</span> propertyName<span class="token punctuation">,</span> method<span class="token punctuation">:</span> descriptor<span class="token punctuation">.</span>value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Command</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token function">register</span><span class="token punctuation">(</span>context<span class="token punctuation">:</span> vscode<span class="token punctuation">.</span>ExtensionContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    allCommands<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>command <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        context<span class="token punctuation">.</span>subscriptions<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>vscode<span class="token punctuation">.</span>commands<span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span>command<span class="token punctuation">.</span>commandId<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> command<span class="token punctuation">.</span>method<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>command<span class="token punctuation">.</span>target<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><pre class="language-javascript"><code><span class="token comment">// WantToRegisterCommand.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Command <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./common'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> enumCommand <span class="token punctuation">{</span>
+  common1 <span class="token operator">=</span> <span class="token string">'common1'</span><span class="token punctuation">,</span>
+  common2 <span class="token operator">=</span> <span class="token string">'common2'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">WantToRegisterCommand</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  @<span class="token function">Command</span><span class="token punctuation">(</span>enumCommand<span class="token punctuation">.</span>common1<span class="token punctuation">)</span>
+  <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">void</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+  <span class="token punctuation">}</span>
+
+  @<span class="token function">Command</span><span class="token punctuation">(</span>enumCommand<span class="token punctuation">.</span>common2<span class="token punctuation">)</span>
+  <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">void</span><span class="token punctuation">{</span>
+    <span class="token comment">// todo</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">WantToRegisterCommand</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/assets/js/28.96cadd4b.js" defer></script><script src="/assets/js/app.be7d675c.js" defer></script>
+  </body>
+</html>

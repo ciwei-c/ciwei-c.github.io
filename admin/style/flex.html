@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>c | flex 兼容写法</title>
+    <meta name="description" content="less is more">
+    <link rel="icon" href="/logo.jpg">
+  <link rel="stylesheet" href="/reset.css">
+  <script src="/canvas.js" defer="defer"></script>
+    
+    <link rel="preload" href="/assets/css/0.styles.0478c24f.css" as="style"><link rel="preload" href="/assets/js/app.be7d675c.js" as="script"><link rel="preload" href="/assets/js/10.a41fbed4.js" as="script"><link rel="prefetch" href="/assets/js/1.60539e9a.js"><link rel="prefetch" href="/assets/js/2.0b75c505.js"><link rel="prefetch" href="/assets/js/3.9088ea5a.js"><link rel="prefetch" href="/assets/js/4.103fa36d.js"><link rel="prefetch" href="/assets/js/5.5d6b3b4d.js"><link rel="prefetch" href="/assets/js/6.114b708d.js"><link rel="prefetch" href="/assets/js/7.dd9d8651.js"><link rel="prefetch" href="/assets/js/8.a2807e46.js"><link rel="prefetch" href="/assets/js/9.060dcd8b.js"><link rel="prefetch" href="/assets/js/11.345e8bb2.js"><link rel="prefetch" href="/assets/js/12.16c9c33b.js"><link rel="prefetch" href="/assets/js/13.40a79dc6.js"><link rel="prefetch" href="/assets/js/14.c0fecdbc.js"><link rel="prefetch" href="/assets/js/15.a5a84037.js"><link rel="prefetch" href="/assets/js/16.ef9dd933.js"><link rel="prefetch" href="/assets/js/17.f8efa1f1.js"><link rel="prefetch" href="/assets/js/18.860330f4.js"><link rel="prefetch" href="/assets/js/19.fc85e39f.js"><link rel="prefetch" href="/assets/js/20.57c53a1b.js"><link rel="prefetch" href="/assets/js/21.ce188af7.js"><link rel="prefetch" href="/assets/js/22.3b8341f1.js"><link rel="prefetch" href="/assets/js/23.bebcb710.js"><link rel="prefetch" href="/assets/js/24.47df5d06.js"><link rel="prefetch" href="/assets/js/25.4fb5da28.js"><link rel="prefetch" href="/assets/js/26.3b16ca15.js"><link rel="prefetch" href="/assets/js/27.25e2f491.js"><link rel="prefetch" href="/assets/js/28.96cadd4b.js"><link rel="prefetch" href="/assets/js/29.efd2f108.js"><link rel="prefetch" href="/assets/js/30.2ff60806.js"><link rel="prefetch" href="/assets/js/31.7575c0b5.js"><link rel="prefetch" href="/assets/js/32.33ca77dc.js"><link rel="prefetch" href="/assets/js/33.04c33092.js"><link rel="prefetch" href="/assets/js/34.bb3f8ee0.js"><link rel="prefetch" href="/assets/js/35.62c4b9cf.js"><link rel="prefetch" href="/assets/js/36.132df95e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0478c24f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      c
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link router-link-active">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link">其他</a></li></ul></div></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">笔记</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/admin/fe/" class="nav-link">Js&amp;Ts</a></li><li class="dropdown-item"><!----><a href="/admin/style/" class="nav-link router-link-active">动画及样式</a></li><li class="dropdown-item"><!----><a href="/admin/more/" class="nav-link">其他</a></li></ul></div></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>flex 兼容写法</span><!----></p><ul class="sidebar-group-items"><li><a href="/admin/style/flex.html#flex-布局" class="sidebar-link">flex 布局</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/style/flex.html#主轴方向" class="sidebar-link">主轴方向</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/style/flex.html#主轴对齐方式" class="sidebar-link">主轴对齐方式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/style/flex.html#交叉轴对齐方式" class="sidebar-link">交叉轴对齐方式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/style/flex.html#空间分配" class="sidebar-link">空间分配</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/admin/style/flex.html#flex-grow-flex-shrink-计算方式" class="sidebar-link">flex-grow / flex-shrink 计算方式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/admin/style/flex.html#flex-grow" class="sidebar-link">flex-grow</a></li><li class="sidebar-sub-header"><a href="/admin/style/flex.html#flex-shrink" class="sidebar-link">flex-shrink</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="flex-兼容写法"><a href="#flex-兼容写法" aria-hidden="true" class="header-anchor">#</a> flex 兼容写法</h1><h2 id="flex-布局"><a href="#flex-布局" aria-hidden="true" class="header-anchor">#</a> flex 布局</h2><pre class="language-css"><code><span class="token selector">.flex</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex
+<span class="token punctuation">}</span>
+</code></pre><h2 id="主轴方向"><a href="#主轴方向" aria-hidden="true" class="header-anchor">#</a> 主轴方向</h2><pre class="language-css"><code><span class="token comment">/*从上到下*/</span>
+<span class="token selector">.flex-dir-top</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-direction</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column
+<span class="token punctuation">}</span>
+<span class="token comment">/*从下到上*/</span>
+<span class="token selector">.flex-dir-bottom</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-direction</span><span class="token punctuation">:</span> reverse<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> end
+<span class="token punctuation">}</span>
+<span class="token comment">/*从左到右*/</span>
+<span class="token selector">.flex-dir-left</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> horizontal<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-direction</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> row
+<span class="token punctuation">}</span>
+<span class="token comment">/*从右到左*/</span>
+<span class="token selector">.flex-dir-right</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> horizontal<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-direction</span><span class="token punctuation">:</span> reverse<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-direction</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> end
+<span class="token punctuation">}</span>
+</code></pre><h2 id="主轴对齐方式"><a href="#主轴对齐方式" aria-hidden="true" class="header-anchor">#</a> 主轴对齐方式</h2><pre class="language-css"><code><span class="token comment">/*从左到右*/</span>
+<span class="token selector">.flex-align-left</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+    <span class="token property">-webkit-justify-content</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-pack</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start
+<span class="token punctuation">}</span>
+<span class="token comment">/*从右到左*/</span>
+<span class="token selector">.flex-align-right</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
+    <span class="token property">-webkit-justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-pack</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end
+<span class="token punctuation">}</span>
+<span class="token comment">/*两端对齐*/</span>
+<span class="token selector">.flex-align-justify</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
+    <span class="token property">-webkit-justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-pack</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between
+<span class="token punctuation">}</span>
+<span class="token comment">/*居中对齐*/</span>
+<span class="token selector">.flex-align-center</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-pack</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">-webkit-justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-pack</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> center
+<span class="token punctuation">}</span>
+</code></pre><h2 id="交叉轴对齐方式"><a href="#交叉轴对齐方式" aria-hidden="true" class="header-anchor">#</a> 交叉轴对齐方式</h2><pre class="language-css"><code><span class="token comment">/*从上到下*/</span>
+<span class="token selector">.flex-ver-top</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+    <span class="token property">-webkit-align-items</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start
+<span class="token punctuation">}</span>
+<span class="token comment">/*从下到上*/</span>
+<span class="token selector">.flex-ver-bottom</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
+    <span class="token property">-webkit-align-items</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> flex-end
+<span class="token punctuation">}</span>
+<span class="token comment">/*垂直居中*/</span>
+<span class="token selector">.flex-ver-center</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">-webkit-align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center
+<span class="token punctuation">}</span>
+<span class="token comment">/*基线对齐*/</span>
+<span class="token selector">.flex-ver-baseline</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> baseline<span class="token punctuation">;</span>
+    <span class="token property">-webkit-align-items</span><span class="token punctuation">:</span> baseline<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> baseline<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> baseline
+<span class="token punctuation">}</span>
+<span class="token comment">/*高度并排铺满*/</span>
+<span class="token selector">.flex-ver-stretch</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-align</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
+    <span class="token property">-webkit-align-items</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> stretch
+<span class="token punctuation">}</span>
+</code></pre><h2 id="空间分配"><a href="#空间分配" aria-hidden="true" class="header-anchor">#</a> 空间分配</h2><pre class="language-css"><code><span class="token selector">.flex-1</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-grow</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-positive</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">flex-grow</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-shrink</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-negative</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">flex-shrink</span><span class="token punctuation">:</span> 1
+<span class="token punctuation">}</span>
+<span class="token selector">.flex-2</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-grow</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-positive</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">flex-grow</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-shrink</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">-ms-flex-negative</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">flex-shrink</span><span class="token punctuation">:</span> 2
+<span class="token punctuation">}</span>
+</code></pre><h2 id="flex-grow-flex-shrink-计算方式"><a href="#flex-grow-flex-shrink-计算方式" aria-hidden="true" class="header-anchor">#</a> flex-grow / flex-shrink 计算方式</h2><h3 id="flex-grow"><a href="#flex-grow" aria-hidden="true" class="header-anchor">#</a> flex-grow</h3><p>当子元素宽度的总和小于父元素的宽度，子元素根据 flex-grow 分配剩余空间。例如</p><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>500px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itemA<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">flex-grow</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>100px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itemB<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">flex-grow</span><span class="token punctuation">:</span>2<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>100px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+此时 itemA 和 itemB 的宽度总和为200px，父元素剩余空间为 500 - 200 = 300px，那么 itemA 的宽度将会计算为 (300/3)1 + 100 = 200px，itemB 的宽度将会计算为 (300/3)2 + 100 = 300px。
+</code></pre><h3 id="flex-shrink"><a href="#flex-shrink" aria-hidden="true" class="header-anchor">#</a> flex-shrink</h3><p>当子元素宽度的总和大于父元素的宽度，子元素超出的宽度将会根据 flex-shrink 按比例缩小自身的宽度，例如</p><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>150px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itemA<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">flex-shrink</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>150px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>itemB<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">flex-shrink</span><span class="token punctuation">:</span>2<span class="token punctuation">;</span><span class="token property">width</span><span class="token punctuation">:</span>150px</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+此时 itemA 和 itemB 的宽度总和为300px，超出父元素空间 300 - 150 = 150px，那么 itemA 的宽度将会计算为 150 - (150/3)1 = 100px，itemB 的宽度将会计算为 150 - (150/3)2 = 50px。
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/assets/js/10.a41fbed4.js" defer></script><script src="/assets/js/app.be7d675c.js" defer></script>
+  </body>
+</html>
