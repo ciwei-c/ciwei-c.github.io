@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["PdfViewer"],{c286:function(e,n,r){"use strict";r.r(n);var t=function(){var e=this,n=e._self._c;return n("div",[n("pdf-viewer",{attrs:{url:"/compressed.pdf"}})],1)},a=[],s={components:{},data(){return{}}},c=s,o=r("2877"),p=Object(o["a"])(c,t,a,!1,null,"4c8aa45a",null);n["default"]=p.exports}}]);

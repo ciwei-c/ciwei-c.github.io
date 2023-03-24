@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["Selection"],{"22d6":function(t,e,n){t.exports=n.p+"img/test.184037a4.jpg"},ed0b:function(t,e,n){"use strict";n.r(e);var i=function(){var t=this,e=t._self._c;return e("div",[e("drag-editor",{attrs:{image:n("22d6")}})],1)},o=[],r={},s=r,a=n("2877"),u=Object(a["a"])(s,i,o,!1,null,null,null);e["default"]=u.exports}}]);

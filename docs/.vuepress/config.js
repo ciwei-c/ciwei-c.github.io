@@ -18,7 +18,10 @@ module.exports = {
                 { text: '动画及样式', link: '/admin/style/'},
                 { text: '其他', link: '/admin/more/'}
             ]
-        }],
+        }, { 
+        	text: 'vue-tools', 
+        	link: '/vue-tools' 
+        },],
         sidebar: 'auto',
         lastUpdated: true,
     }
